@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CyberShield</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 80px auto 40px;
+            padding: 0 15px;
+        }
+
+        .dashboard-header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .user-info h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .user-info p {
+            color: #6b7280;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-card i {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #3b82f6;
+        }
+
+        .stat-card h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .action-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .action-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+        }
+
+        .action-card i {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #3b82f6;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Feed
+        </a>
+
+        <div class="dashboard-header">
+            <div class="user-profile">
+                <div class="user-avatar">U</div>
+                <div class="user-info">
+                    <h2>Welcome, User!</h2>
+                    <p>Your cyber safety dashboard</p>
+                    <span class="badge" style="background: #3b82f6; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px;">
+                        <i class="fas fa-shield-alt"></i> Account Protected
+                    </span>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>3</h3>
+                    <p>Active Tickets</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>5</h3>
+                    <p>Resolved Cases</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-bookmark"></i>
+                    <h3>12</h3>
+                    <p>Saved Posts</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>1</h3>
+                    <p>Assigned Expert</p>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 15px;">Quick Actions</h3>
+            <div class="quick-actions-grid">
+                <div class="action-card" onclick="window.location.href='create.html'">
+                    <i class="fas fa-plus-circle"></i>
+                    <h4>Create New Ticket</h4>
+                    <p>Get help with cyber issue</p>
+                </div>
+                <div class="action-card" onclick="window.location.href='chat.html'">
+                    <i class="fas fa-comments"></i>
+                    <h4>Chat with Expert</h4>
+                    <p>Secure messaging</p>
+                </div>
+                <div class="action-card" onclick="showSavedPosts()">
+                    <i class="fas fa-bookmark"></i>
+                    <h4>Saved Posts</h4>
+                    <p>View your saved cases</p>
+                </div>
+                <div class="action-card" onclick="window.location.href='tools.html'">
+                    <i class="fas fa-tools"></i>
+                    <h4>Safety Tools</h4>
+                    <p>Protect yourself</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: white; border-radius: 15px; padding: 20px; margin-bottom: 20px;">
+            <h3 style="margin-bottom: 15px;">Your Recent Activity</h3>
+            <div style="color: #6b7280; text-align: center; padding: 40px 20px;">
+                <i class="fas fa-history" style="font-size: 48px; color: #e5e7eb; margin-bottom: 15px;"></i>
+                <p>No recent activity</p>
+                <button class="btn-primary" onclick="window.location.href='create.html'">
+                    Start Your First Case
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <div class="logo-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="logo-text">CyberShield</div>
+        </a>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Feed</a>
+            <a href="feed.html" class="nav-link">Explore</a>
+            <a href="experts.html" class="nav-link">Experts</a>
+            <a href="tools.html" class="nav-link">Tools</a>
+            <a href="create.html" class="nav-link">Get Help</a>
+        </div>
+        
+        <div class="nav-actions">
+            <button class="btn btn-outline btn-small">
+                <i class="fas fa-user"></i> Login
+            </button>
+            <button class="btn btn-primary btn-small">
+                <i class="fas fa-plus"></i> New Case
+            </button>
+        </div>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <script src="script.js"></script>
+    <script>
+        // dashboard.html ke end mein
+async function loadDashboard() {
+    const userId = localStorage.getItem('user_id');
+    
+    if (!userId) {
+        // Show login prompt
+        showNotification('Please login to view dashboard', 'warning');
+        setTimeout(() => window.location.href = 'index.html', 1500);
+        return;
+    }
+    
+    // Load user data
+    const user = await dataManager.getUserData(userId);
+    const stats = await dataManager.getDashboardStats(userId);
+    
+    if (stats.success) {
+        // Update UI with stats
+        updateDashboardUI(user, stats.stats);
+    }
+}
+
+function updateDashboardUI(user, stats) {
+    // Update welcome message
+    document.getElementById('welcomeMessage').textContent = 
+        `Welcome back, ${user.username || 'User'}!`;
+    
+    // Update stats cards
+    document.getElementById('totalTickets').textContent = 
+        stats.user?.ticketsCreated || 0;
+    document.getElementById('savedPosts').textContent = 
+        stats.user?.savedPosts || 0;
+    
+    // Show user's tickets
+    showUserTickets(user.tickets || []);
+}
+    </script>
+</body>
+</html>

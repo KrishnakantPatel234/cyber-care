@@ -1,0 +1,40 @@
+{
+  "experts": [
+    {
+      "id": "exp_001",
+      "name": "Dr. Sarah Wilson",
+      "title": "Senior Cyber Security Analyst",
+      "specialties": ["Phishing Attacks", "Malware Analysis", "Data Breach", "Network Security"],
+      "rating": 4.9,
+      "casesSolved": 234,
+      "responseTime": "15 min",
+      "experience": "8 years",
+      "availability": "online",
+      "avatar": "SW",
+      "bio": "Former cybersecurity head at multinational bank. Specialized in financial fraud prevention.",
+      "isVerified": true,
+      "color": "#4361ee"
+    },
+    {
+      "id": "exp_002",
+      "name": "Alex Johnson",
+      "title": "Digital Forensics Specialist",
+      "specialties": ["Hacking Incidents", "Data Recovery", "Mobile Forensics", "Incident Response"],
+      "rating": 4.8,
+      "casesSolved": 189,
+      "responseTime": "20 min",
+      "experience": "6 years",
+      "availability": "online",
+      "avatar": "AJ",
+      "bio": "Certified digital forensics expert. Worked with law enforcement on cyber crime cases.",
+      "isVerified": true,
+      "color": "#7209b7"
+    }
+  ],
+  "categories": ["phishing", "hacking", "fraud", "bullying", "social-media", "data-breach", "malware", "online-scams"],
+  "stats": {
+    "totalExperts": 2,
+    "onlineExperts": 2,
+    "averageRating": 4.85
+  }
+}
