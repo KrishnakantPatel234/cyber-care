@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "user_123",
+      "username": "john_doe",
+      "email": "john@example.com",
+      "role": "victim",
+      "isAnonymous": true,
+      "createdAt": "2024-01-18T10:00:00Z",
+      "updatedAt": "2024-01-18T10:30:00Z",
+      "tickets": ["TICKET_1705567890123"],
+      "savedPosts": ["post_1705567891_def456"],
+      "stats": {
+        "postsViewed": 15,
+        "ticketsCreated": 1,
+        "casesResolved": 0
+      }
+    }
+  ],
+  "lastUserId": "user_123",
+  "stats": {
+    "totalUsers": 1,
+    "activeUsers": 1
+  }
+}

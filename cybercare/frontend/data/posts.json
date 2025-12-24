@@ -1,0 +1,93 @@
+{
+  "posts": [
+    {
+      "id": "post_1705567890_abc123",
+      "author": {
+        "name": "Dr. Sarah Wilson",
+        "role": "Cyber Security Expert",
+        "initials": "SW",
+        "isVerified": true
+      },
+      "category": "phishing",
+      "categoryLabel": "🎣 PHISHING ATTACK",
+      "title": "How I helped recover ₹50,000 from a fake bank call",
+      "description": "Victim received call from someone claiming to be bank manager asking for OTP to 'secure account'. Managed to trace and recover funds.",
+      "solution": [
+        "Immediately blocked all bank cards",
+        "Filed complaint with cyber crime portal",
+        "Contacted bank's fraud department",
+        "Changed all online banking passwords",
+        "Enabled 2FA on all financial accounts"
+      ],
+      "prevention": [
+        "Never share OTP with anyone",
+        "Banks never call asking for sensitive info",
+        "Verify caller identity by calling bank's official number",
+        "Enable transaction alerts"
+      ],
+      "stats": {
+        "likes": 245,
+        "comments": 42,
+        "shares": 89,
+        "saves": 156,
+        "helpful": 98
+      },
+      "timestamp": "2 hours ago",
+      "severity": "high",
+      "tags": ["bank-fraud", "otp-scam", "financial-safety"],
+      "color": "#4361ee",
+      "createdAt": "2024-01-18T10:30:00Z",
+      "updatedAt": "2024-01-18T10:30:00Z",
+      "likedBy": ["user_123", "user_456"],
+      "savedBy": ["user_789"]
+    },
+    {
+      "id": "post_1705567891_def456",
+      "author": {
+        "name": "Alex Johnson",
+        "role": "Digital Forensics Specialist",
+        "initials": "AJ",
+        "isVerified": true
+      },
+      "category": "hacking",
+      "categoryLabel": "💻 ACCOUNT HACKING",
+      "title": "Instagram account hacked and being used for scams - Recovery Guide",
+      "description": "Hacker took over Instagram account, changed email/password, and started posting crypto scams. Full recovery achieved.",
+      "solution": [
+        "Used Instagram's account recovery process",
+        "Provided government ID for verification",
+        "Contacted friends to report the hacked account",
+        "Checked connected apps and removed suspicious ones",
+        "Set up login alerts and 2FA"
+      ],
+      "prevention": [
+        "Use strong unique password",
+        "Enable two-factor authentication",
+        "Don't use same password across sites",
+        "Regularly check active sessions",
+        "Be wary of suspicious login links"
+      ],
+      "stats": {
+        "likes": 321,
+        "comments": 56,
+        "shares": 124,
+        "saves": 198,
+        "helpful": 96
+      },
+      "timestamp": "5 hours ago",
+      "severity": "critical",
+      "tags": ["instagram", "social-media", "account-recovery", "hacking"],
+      "color": "#7209b7",
+      "createdAt": "2024-01-18T08:15:00Z",
+      "updatedAt": "2024-01-18T08:15:00Z",
+      "likedBy": ["user_123"],
+      "savedBy": ["user_456", "user_789"]
+    }
+  ],
+  "lastUpdated": "2024-01-18T10:30:00Z",
+  "stats": {
+    "totalPosts": 2,
+    "totalLikes": 566,
+    "totalComments": 98
+  }
+}

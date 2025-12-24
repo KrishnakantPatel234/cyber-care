@@ -3,495 +3,832 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield - Cyber Crime Support</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CyberShield | Cyber Crime Awareness Feed</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="utils/dataManager.js"></script>
+    <style>
+        /* Additional styles for index page */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(45, 45, 45, 0.8) 100%);
+            padding: 100px 0 60px;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(67, 97, 238, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(114, 9, 183, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(67, 97, 238, 0.2);
+            padding: 10px 20px;
+            border-radius: var(--radius-full);
+            margin-bottom: 30px;
+            border: 1px solid rgba(67, 97, 238, 0.3);
+        }
+        
+        .hero-badge i {
+            color: var(--primary);
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-light);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            line-height: 1;
+        }
+        
+        .hero-stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+        
+        .quick-actions {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 900;
+        }
+        
+        .quick-action-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quick-action-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 40px rgba(67, 97, 238, 0.4);
+        }
+        
+        .quick-action-btn.create {
+            background: var(--gradient-secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .quick-actions {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .quick-action-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-shield-alt"></i>
-                <h1>CyberShield</h1>
-            </div>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="logo-text">CyberShield</div>
+            </a>
+            
             <div class="nav-links">
-                <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
-                <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                <a href="#create-ticket"><i class="fas fa-plus-circle"></i> Create Ticket</a>
-                <a href="#experts"><i class="fas fa-users"></i> Experts</a>
-                <a href="#tools"><i class="fas fa-tools"></i> Tools</a>
-                <button class="btn-login" onclick="toggleLogin()">
+                <a href="index.html" class="nav-link active">Feed</a>
+                <a href="feed.html" class="nav-link">Explore</a>
+                <a href="experts.html" class="nav-link">Experts</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+                <a href="create.html" class="nav-link">Get Help</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn btn-outline btn-small" onclick="showLogin()">
                     <i class="fas fa-user"></i> Login
                 </button>
+                <a href="create.html" class="btn btn-primary btn-small">
+                    <i class="fas fa-plus"></i> New Case
+                </a>
             </div>
-            <button class="menu-btn" onclick="toggleMenu()">
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#" onclick="toggleMenu()"><i class="fas fa-home"></i> Home</a>
-        <a href="#dashboard" onclick="toggleMenu()"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-        <a href="#create-ticket" onclick="toggleMenu()"><i class="fas fa-plus-circle"></i> Create Ticket</a>
-        <a href="#experts" onclick="toggleMenu()"><i class="fas fa-users"></i> Experts</a>
-        <a href="#tools" onclick="toggleMenu()"><i class="fas fa-tools"></i> Tools</a>
-        <button class="btn-login" onclick="toggleLogin()">
-            <i class="fas fa-user"></i> Login
-        </button>
-    </div>
-
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Login / Register</h2>
-                <button class="close-btn" onclick="toggleLogin()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="role-selector">
-                    <button class="role-btn active" onclick="selectRole('victim')">
-                        <i class="fas fa-user-injured"></i>
-                        <span>Victim</span>
-                    </button>
-                    <button class="role-btn" onclick="selectRole('expert')">
-                        <i class="fas fa-user-shield"></i>
-                        <span>Expert</span>
-                    </button>
-                    <button class="role-btn" onclick="selectRole('anonymous')">
-                        <i class="fas fa-user-secret"></i>
-                        <span>Anonymous</span>
-                    </button>
-                </div>
-                
-                <form id="loginForm" onsubmit="handleLogin(event)">
-                    <div class="form-group">
-                        <label for="username"><i class="fas fa-user"></i> Username</label>
-                        <input type="text" id="username" placeholder="Enter username" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password"><i class="fas fa-lock"></i> Password</label>
-                        <input type="password" id="password" placeholder="Enter password" required>
-                    </div>
-                    
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="anonymousMode" checked>
-                        <label for="anonymousMode">Stay Anonymous</label>
-                        <span class="tooltip">
-                            <i class="fas fa-info-circle"></i>
-                            <span class="tooltip-text">Your identity will be hidden from experts</span>
-                        </span>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-sign-in-alt"></i> Login
-                    </button>
-                    
-                    <p class="register-link">
-                        Don't have account? <a href="#" onclick="showRegister()">Register here</a>
-                    </p>
-                </form>
+    <div class="mobile-menu" id="mobileMenu" style="display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--dark-light); padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); z-index: 999;">
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <a href="index.html" class="nav-link active">Feed</a>
+            <a href="feed.html" class="nav-link">Explore</a>
+            <a href="experts.html" class="nav-link">Experts</a>
+            <a href="tools.html" class="nav-link">Tools</a>
+            <a href="create.html" class="nav-link">Get Help</a>
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button class="btn btn-outline btn-small" style="flex: 1;" onclick="showLogin()">
+                    <i class="fas fa-user"></i> Login
+                </button>
+                <a href="create.html" class="btn btn-primary btn-small" style="flex: 1;">
+                    <i class="fas fa-plus"></i> New Case
+                </a>
             </div>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <div class="tag">
+                <div class="hero-badge">
                     <i class="fas fa-shield-check"></i>
                     <span>Trusted by 50,000+ Users</span>
                 </div>
-                <h1>Cyber Crime Support <span>Made Safe & Simple</span></h1>
-                <p>Get instant help from verified cyber security experts. Share your issue anonymously, get expert guidance, and protect yourself from future threats.</p>
-                <div class="hero-buttons">
-                    <button class="btn-primary" onclick="scrollToSection('create-ticket')">
-                        <i class="fas fa-plus-circle"></i> Create Ticket
-                    </button>
-                    <button class="btn-secondary" onclick="scrollToSection('tools')">
-                        <i class="fas fa-tools"></i> Safety Tools
-                    </button>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="floating-cards">
-                    <div class="card ticket-card">
-                        <div class="card-header">
-                            <span class="badge critical">Critical</span>
-                            <span class="time">2h ago</span>
-                        </div>
-                        <h3>Account Hacked</h3>
-                        <p>Facebook account compromised</p>
-                        <div class="expert-info">
-                            <img src="https://ui-avatars.com/api/?name=Alex+J&background=3b82f6&color=fff" alt="Expert">
-                            <span>Assigned to: Alex Johnson</span>
-                        </div>
-                    </div>
-                    <div class="card ticket-card">
-                        <div class="card-header">
-                            <span class="badge resolved">Resolved</span>
-                            <span class="time">1d ago</span>
-                        </div>
-                        <h3>Phishing Email</h3>
-                        <p>Bank phishing attempt prevented</p>
-                        <div class="solved-badge">
-                            <i class="fas fa-check-circle"></i> Case Solved
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dashboard Section -->
-    <section class="dashboard" id="dashboard">
-        <div class="container">
-            <h2 class="section-title">Your Dashboard</h2>
-            
-            <!-- Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-ticket-alt"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>8</h3>
-                        <p>Total Tickets</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>2</h3>
-                        <p>Active</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>5</h3>
-                        <p>Resolved</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <div class="stat-info">
-                        <h3>1</h3>
-                        <p>Escalated</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tickets List -->
-            <div class="tickets-container">
-                <div class="section-header">
-                    <h3>Recent Tickets</h3>
-                    <button class="btn-small" onclick="showAllTickets()">
-                        View All <i class="fas fa-arrow-right"></i>
-                    </button>
+                
+                <h1 class="hero-title">
+                    Cyber Crime Awareness
+                    <span style="font-size: 3rem; display: block; margin-top: 10px;">Made Simple & Safe</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Learn from real cases solved by cyber security experts. Protect yourself with knowledge from thousands of resolved cyber crime incidents.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="create.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-plus-circle"></i> Get Help Now
+                    </a>
+                    <a href="#feed" class="btn btn-outline btn-large">
+                        <i class="fas fa-compass"></i> Explore Cases
+                    </a>
                 </div>
                 
-                <div class="tickets-list" id="ticketsList">
-                    <!-- Tickets will be added by JavaScript -->
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">12,456</span>
+                        <span class="hero-stat-label">Cases Solved</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">89%</span>
+                        <span class="hero-stat-label">Success Rate</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">42</span>
+                        <span class="hero-stat-label">Active Experts</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">24/7</span>
+                        <span class="hero-stat-label">Support</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Create Ticket Section -->
-    <section class="create-ticket" id="create-ticket">
+    <!-- Main Feed Section -->
+    <section id="feed" class="section" style="padding-top: 40px;">
         <div class="container">
-            <h2 class="section-title">Create New Ticket</h2>
-            <p class="section-subtitle">Describe your cyber issue. All information is encrypted and anonymous.</p>
-            
-            <div class="ticket-form">
-                <!-- Privacy Settings -->
-                <div class="form-section">
-                    <div class="section-header">
-                        <i class="fas fa-user-secret"></i>
-                        <h3>Privacy Settings</h3>
-                    </div>
-                    <div class="privacy-options">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="anonymous" checked>
-                            <span class="checkmark"></span>
-                            <span class="label-text">
-                                <strong>Stay Anonymous</strong>
-                                <small>Experts will see your ticket but not your identity</small>
-                            </span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="blurSensitive" checked>
-                            <span class="checkmark"></span>
-                            <span class="label-text">
-                                <strong>Auto-blur Sensitive Info</strong>
-                                <small>Automatically blur faces and sensitive data in evidence</small>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Issue Details -->
-                <div class="form-section">
-                    <div class="section-header">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Issue Details</h3>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="ticketTitle"><i class="fas fa-heading"></i> Title *</label>
-                        <input type="text" id="ticketTitle" placeholder="Briefly describe your issue" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="ticketDescription"><i class="fas fa-file-alt"></i> Description *</label>
-                        <textarea id="ticketDescription" rows="4" placeholder="Provide detailed information about what happened, when it occurred, and any relevant details..." required></textarea>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="category"><i class="fas fa-tag"></i> Category *</label>
-                            <select id="category" required>
-                                <option value="phishing">🎣 Phishing Attack</option>
-                                <option value="hacking">💻 Account Hacking</option>
-                                <option value="fraud">💰 Financial Fraud</option>
-                                <option value="bullying">😔 Cyber Bullying</option>
-                                <option value="breach">🔓 Data Breach</option>
-                                <option value="malware">🦠 Malware/Virus</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label><i class="fas fa-fire"></i> Severity *</label>
-                            <div class="severity-buttons">
-                                <button type="button" class="severity-btn low" onclick="selectSeverity('low')">Low</button>
-                                <button type="button" class="severity-btn medium active" onclick="selectSeverity('medium')">Medium</button>
-                                <button type="button" class="severity-btn high" onclick="selectSeverity('high')">High</button>
-                                <button type="button" class="severity-btn critical" onclick="selectSeverity('critical')">Critical</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Evidence Upload -->
-                <div class="form-section">
-                    <div class="section-header">
-                        <i class="fas fa-upload"></i>
-                        <h3>Evidence (Optional)</h3>
-                    </div>
-                    
-                    <div class="upload-area" id="uploadArea">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Drop files here or click to upload</p>
-                        <p class="upload-hint">Screenshots, emails, messages (Max 10MB each)</p>
-                        <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx" onchange="handleFileUpload()">
-                        <label for="fileInput" class="btn-secondary">Choose Files</label>
-                    </div>
-                    
-                    <div class="file-list" id="fileList">
-                        <!-- Files will be listed here -->
-                    </div>
-                </div>
-
-                <!-- Submit -->
-                <div class="form-section submit-section">
-                    <div class="security-notice">
-                        <i class="fas fa-lock"></i>
-                        <div>
-                            <strong>All data is encrypted and secure</strong>
-                            <p>Your information is protected with end-to-end encryption</p>
-                        </div>
-                    </div>
-                    <button type="button" class="btn-primary btn-large" onclick="createTicket()">
-                        <i class="fas fa-shield-alt"></i> Create Secure Ticket
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experts Section -->
-    <section class="experts" id="experts">
-        <div class="container">
-            <h2 class="section-title">Our Verified Experts</h2>
-            <p class="section-subtitle">Get help from certified cyber security professionals</p>
-            
-            <div class="experts-grid" id="expertsGrid">
-                <!-- Experts will be added by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Safety Tools Section -->
-    <section class="tools" id="tools">
-        <div class="container">
-            <h2 class="section-title">Cyber Safety Tools</h2>
-            
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>URL Scanner</h3>
-                    <p>Check if a website is safe before visiting</p>
-                    <div class="tool-input">
-                        <input type="text" id="urlInput" placeholder="Enter website URL">
-                        <button class="btn-small" onclick="scanURL()">Scan</button>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email Checker</h3>
-                    <p>Verify suspicious emails for phishing attempts</p>
-                    <button class="btn-primary" onclick="checkEmail()">
-                        <i class="fas fa-shield-alt"></i> Check Email
-                    </button>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <h3>Password Strength</h3>
-                    <p>Test how strong your password is</p>
-                    <div class="tool-input">
-                        <input type="password" id="passwordInput" placeholder="Enter password">
-                        <div class="strength-meter">
-                            <div class="strength-bar" id="strengthBar"></div>
-                        </div>
-                        <span class="strength-text" id="strengthText">Weak</span>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Emergency Guide</h3>
-                    <p>Step-by-step help for urgent situations</p>
-                    <button class="btn-primary" onclick="showEmergencyGuide()">
-                        <i class="fas fa-first-aid"></i> View Guide
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Emergency Guide Modal -->
-    <div class="modal" id="emergencyModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2><i class="fas fa-first-aid"></i> Emergency Cyber Attack Guide</h2>
-                <button class="close-btn" onclick="closeEmergencyGuide()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="emergency-steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Don't Panic</h3>
-                            <p>Take a deep breath. Panic can lead to mistakes.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Disconnect Internet</h3>
-                            <p>Turn off WiFi and mobile data to prevent further damage.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Change Passwords</h3>
-                            <p>Use another device to change critical passwords.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h3>Contact Experts</h3>
-                            <p>Create a ticket above to get immediate expert help.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="emergency-contacts">
-                    <h3><i class="fas fa-phone-alt"></i> Immediate Contacts</h3>
-                    <div class="contact-buttons">
-                        <button class="btn-primary">
-                            <i class="fas fa-exclamation-triangle"></i> Cyber Crime Portal
+            <!-- Feed Header -->
+            <div class="feed-header">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                    <h2 style="margin: 0;">
+                        <i class="fas fa-fire" style="color: var(--accent); margin-right: 10px;"></i>
+                        Latest Awareness Posts
+                    </h2>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-secondary btn-small" onclick="sortFeed('latest')">
+                            <i class="fas fa-clock"></i> Latest
                         </button>
-                        <button class="btn-secondary">
-                            <i class="fas fa-building"></i> Local Police
-                        </button>
-                        <button class="btn-primary" onclick="createTicket()">
-                            <i class="fas fa-user-shield"></i> Expert Help
+                        <button class="btn btn-secondary btn-small" onclick="sortFeed('popular')">
+                            <i class="fas fa-fire"></i> Popular
                         </button>
                     </div>
                 </div>
+                
+                <div class="feed-filters">
+                    <button class="filter-btn active" onclick="filterFeed('all')">All Cases</button>
+                    <button class="filter-btn" onclick="filterFeed('phishing')">Phishing</button>
+                    <button class="filter-btn" onclick="filterFeed('hacking')">Hacking</button>
+                    <button class="filter-btn" onclick="filterFeed('fraud')">Financial Fraud</button>
+                    <button class="filter-btn" onclick="filterFeed('bullying')">Cyber Bullying</button>
+                    <button class="filter-btn" onclick="filterFeed('social')">Social Media</button>
+                    <button class="filter-btn" onclick="filterFeed('scam')">Online Scams</button>
+                </div>
+                
+                <div class="feed-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="postCount">12</span>
+                        <span class="stat-label">Posts Today</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="expertCount">8</span>
+                        <span class="stat-label">Active Experts</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="helpfulCount">94%</span>
+                        <span class="stat-label">Helpful Posts</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feed Posts Container -->
+            <div id="feedPosts">
+                <!-- Posts will be loaded here by JavaScript -->
+            </div>
+
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i> Loading more posts...
+            </div>
+
+            <!-- No Posts Message -->
+            <div id="noPostsMessage" style="display: none; text-align: center; padding: 60px 20px; color: var(--gray-light);">
+                <i class="fas fa-inbox" style="font-size: 48px; margin-bottom: 20px;"></i>
+                <h3>No posts to show</h3>
+                <p>Try changing your filters or check back later</p>
             </div>
         </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <button class="quick-action-btn create" onclick="window.location.href='create.html'">
+            <i class="fas fa-plus"></i>
+        </button>
+        <button class="quick-action-btn" onclick="scrollToTop()">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-shield-alt"></i>
-                    <h2>CyberShield</h2>
-                    <p>Your digital safety partner</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <a href="#"><i class="fas fa-chevron-right"></i> Home</a>
-                    <a href="#dashboard"><i class="fas fa-chevron-right"></i> Dashboard</a>
-                    <a href="#create-ticket"><i class="fas fa-chevron-right"></i> Create Ticket</a>
-                    <a href="#tools"><i class="fas fa-chevron-right"></i> Safety Tools</a>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>Emergency Contact</h3>
-                    <p><i class="fas fa-phone"></i> 1930 (Cyber Crime Helpline)</p>
-                    <p><i class="fas fa-envelope"></i> help@cybershield.com</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 CyberShield. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- Notification -->
     <div class="notification" id="notification">
-        <div class="notification-content">
+        <div class="notification-content" style="display: flex; align-items: center; justify-content: space-between;">
             <span id="notificationMessage"></span>
-            <button class="close-notification" onclick="hideNotification()">&times;</button>
+            <button style="background: none; border: none; color: var(--white); font-size: 20px; cursor: pointer;" onclick="hideNotification()">
+                &times;
+            </button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1002; align-items: center; justify-content: center;">
+        <div style="background: var(--dark-light); border-radius: var(--radius-lg); padding: 40px; width: 90%; max-width: 400px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h3 style="margin: 0;">Login to CyberShield</h3>
+                <button style="background: none; border: none; color: var(--gray-light); font-size: 24px; cursor: pointer;" onclick="hideLogin()">
+                    &times;
+                </button>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input" placeholder="Enter your email">
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-input" placeholder="Enter your password">
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%;" onclick="handleLogin()">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+            
+            <p style="text-align: center; margin-top: 20px; color: var(--gray-light); font-size: 14px;">
+                Don't have an account? <a href="#" style="color: var(--primary);">Register here</a>
+            </p>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // In index.html, replace the entire script with:
+
+        // Global variables
+        let currentUser = null;
+        let likedPosts = new Set();
+        let savedPosts = new Set();
+        let currentFilter = 'all';
+        let isLoading = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Load user from localStorage
+            loadUserFromStorage();
+            
+            // Load feed posts
+            await loadFeedPosts();
+            
+            // Setup infinite scroll
+            setupInfiniteScroll();
+            
+            // Update stats
+            await updateStats();
+        });
+
+        // Load user from localStorage
+        function loadUserFromStorage() {
+            try {
+                const userData = localStorage.getItem('current_user');
+                if (userData) {
+                    currentUser = JSON.parse(userData);
+                    updateUIForLoggedInUser();
+                }
+                
+                // Load liked and saved posts
+                const liked = JSON.parse(localStorage.getItem('liked_posts') || '[]');
+                const saved = JSON.parse(localStorage.getItem('saved_posts') || '[]');
+                
+                likedPosts = new Set(liked);
+                savedPosts = new Set(saved);
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+
+        // Update UI for logged in user
+        function updateUIForLoggedInUser() {
+            if (currentUser) {
+                const loginBtn = document.querySelector('.btn-outline');
+                if (loginBtn) {
+                    loginBtn.innerHTML = `<i class="fas fa-user"></i> ${currentUser.username}`;
+                    loginBtn.onclick = showUserMenu;
+                }
+            }
+        }
+
+        // Load feed posts from JSON
+        async function loadFeedPosts() {
+            const feedContainer = document.getElementById('feedPosts');
+            const noPostsMessage = document.getElementById('noPostsMessage');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            
+            if (!feedContainer) return;
+            
+            // Show loading
+            if (loadingIndicator) loadingIndicator.style.display = 'block';
+            
+            try {
+                // Load posts from JSON file
+                const data = await dataManager.loadJSON('posts.json');
+                let posts = data.posts || [];
+                
+                // Apply filters
+                if (currentFilter !== 'all') {
+                    posts = posts.filter(post => 
+                        post.category === currentFilter ||
+                        post.tags?.some(tag => tag.toLowerCase().includes(currentFilter))
+                    );
+                }
+                
+                // Clear container
+                feedContainer.innerHTML = '';
+                
+                if (posts.length === 0) {
+                    feedContainer.style.display = 'none';
+                    if (noPostsMessage) noPostsMessage.style.display = 'block';
+                } else {
+                    feedContainer.style.display = 'block';
+                    if (noPostsMessage) noPostsMessage.style.display = 'none';
+                    
+                    // Render posts
+                    posts.forEach(post => {
+                        const postElement = createPostElement(post);
+                        feedContainer.innerHTML += postElement;
+                    });
+                }
+                
+                updateActiveFilter();
+            } catch (error) {
+                console.error('Error loading posts:', error);
+                showNotification('Failed to load posts', 'error');
+            } finally {
+                if (loadingIndicator) loadingIndicator.style.display = 'none';
+            }
+        }
+
+        // Create post element
+        function createPostElement(post) {
+            const isLiked = likedPosts.has(post.id);
+            const isSaved = savedPosts.has(post.id);
+            
+            return `
+                <article class="post-card" data-id="${post.id}">
+                    <div class="post-header">
+                        <div class="post-avatar" style="background: ${post.color || '#4361ee'}">
+                            ${post.author?.initials || 'CS'}
+                        </div>
+                        <div class="post-user-info">
+                            <h4>
+                                ${post.author?.name || 'CyberShield Team'}
+                                ${post.author?.isVerified ? '<i class="fas fa-check-circle verified-badge"></i>' : ''}
+                            </h4>
+                            <div class="post-meta">
+                                <span>${post.author?.role || 'Official Awareness'}</span>
+                                <span>•</span>
+                                <span>${post.timestamp || 'Recently'}</span>
+                                <div class="post-category" style="background: ${(post.color || '#4361ee')}20; color: ${post.color || '#4361ee'}">
+                                    ${post.categoryLabel || 'CYBER CRIME'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="post-content">
+                        <h3 class="post-title">${post.title}</h3>
+                        <p class="post-description">${post.description}</p>
+                        
+                        ${post.solution ? `
+                        <div class="post-solution" style="border-left-color: ${post.color || '#4361ee'}">
+                            <h5><i class="fas fa-check-circle" style="color: ${post.color || '#4361ee'}"></i> SOLUTION APPLIED</h5>
+                            <ul class="solution-steps">
+                                ${post.solution.map(step => `<li>${step}</li>`).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+                        
+                        ${post.prevention ? `
+                        <div class="post-prevention" style="border-left-color: ${post.color || '#4361ee'}">
+                            <h5><i class="fas fa-shield-alt" style="color: ${post.color || '#4361ee'}"></i> PREVENTION TIPS</h5>
+                            <ul class="prevention-steps">
+                                ${post.prevention.map(tip => `<li>${tip}</li>`).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+                        
+                        ${post.tags ? `
+                        <div class="post-tags">
+                            ${post.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}
+                        </div>
+                        ` : ''}
+                    </div>
+                    
+                    <div class="post-footer">
+                        <div class="post-actions">
+                            <button class="action-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike('${post.id}')">
+                                <i class="fas fa-heart"></i>
+                                <span>${(post.stats?.likes || 0) + (isLiked ? 1 : 0)}</span>
+                            </button>
+                            <button class="action-btn" onclick="showComments('${post.id}')">
+                                <i class="fas fa-comment"></i>
+                                <span>${post.stats?.comments || 0}</span>
+                            </button>
+                            <button class="action-btn" onclick="sharePost('${post.id}')">
+                                <i class="fas fa-share"></i>
+                                <span>${post.stats?.shares || 0}</span>
+                            </button>
+                            <button class="action-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${post.id}')">
+                                <i class="fas fa-bookmark"></i>
+                                <span>Save</span>
+                            </button>
+                        </div>
+                        
+                        <div class="post-helpful">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>${post.stats?.helpful || 95}% found helpful</span>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+// Toggle like
+async function toggleLike(postId) {
+    if (!currentUser) {
+        showNotification('Please login to like posts', 'warning');
+        return;
+    }
+    
+    try {
+        const result = await dataManager.likePost(postId, currentUser.id);
+        
+        if (result.success) {
+            // Update local state
+            if (likedPosts.has(postId)) {
+                likedPosts.delete(postId);
+            } else {
+                likedPosts.add(postId);
+            }
+            
+            // Update localStorage
+            localStorage.setItem('liked_posts', JSON.stringify([...likedPosts]));
+            
+            // Reload feed
+            await loadFeedPosts();
+            
+            showNotification(result.isLiked ? 'Post liked!' : 'Like removed', 'success');
+        } else {
+            showNotification(result.message, 'error');
+        }
+    } catch (error) {
+        console.error('Error toggling like:', error);
+        showNotification('Failed to like post', 'error');
+    }
+}
+
+// Toggle save
+async function toggleSave(postId) {
+    if (!currentUser) {
+        showNotification('Please login to save posts', 'warning');
+        return;
+    }
+    
+    try {
+        const result = await dataManager.savePost(postId, currentUser.id);
+        
+        if (result.success) {
+            // Update local state
+            if (savedPosts.has(postId)) {
+                savedPosts.delete(postId);
+            } else {
+                savedPosts.add(postId);
+            }
+            
+            // Update localStorage
+            localStorage.setItem('saved_posts', JSON.stringify([...savedPosts]));
+            
+            // Reload feed
+            await loadFeedPosts();
+            
+            showNotification(result.isSaved ? 'Post saved!' : 'Removed from saved', 'success');
+        } else {
+            showNotification(result.message, 'error');
+        }
+    } catch (error) {
+        console.error('Error toggling save:', error);
+        showNotification('Failed to save post', 'error');
+    }
+}
+
+// Update stats
+async function updateStats() {
+    try {
+        const data = await dataManager.loadJSON('posts.json');
+        const posts = data.posts || [];
+        
+        // Update counts
+        document.getElementById('postCount').textContent = posts.length;
+        
+        // Count unique experts
+        const experts = [...new Set(posts.map(p => p.author?.initials).filter(Boolean))];
+        document.getElementById('expertCount').textContent = experts.length;
+        
+        // Calculate average helpful percentage
+        const avgHelpful = posts.length > 0 
+            ? Math.round(posts.reduce((sum, p) => sum + (p.stats?.helpful || 0), 0) / posts.length)
+            : 95;
+        document.getElementById('helpfulCount').textContent = avgHelpful + '%';
+    } catch (error) {
+        console.error('Error updating stats:', error);
+    }
+}
+
+// Filter feed
+function filterFeed(filter) {
+    currentFilter = filter;
+    loadFeedPosts();
+    showNotification(`Showing ${filter === 'all' ? 'all' : filter} cases`, 'info');
+}
+
+        function filterFeed(filter) {
+            currentFilter = filter;
+            loadFeedPosts();
+            showNotification(`Showing ${filter === 'all' ? 'all' : filter} cases`, 'info');
+        }
+
+        function sortFeed(sortBy) {
+            if (sortBy === 'latest') {
+                feedPosts.sort((a, b) => b.id - a.id);
+            } else if (sortBy === 'popular') {
+                feedPosts.sort((a, b) => b.stats.likes - a.stats.likes);
+            }
+            loadFeedPosts();
+            showNotification(`Sorted by ${sortBy}`, 'info');
+        }
+
+        function updateActiveFilter() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(currentFilter)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function updateStats() {
+            document.getElementById('postCount').textContent = feedPosts.length;
+            document.getElementById('expertCount').textContent = new Set(feedPosts.map(p => p.author.initials)).size;
+            
+            const avgHelpful = Math.round(feedPosts.reduce((sum, post) => sum + post.stats.helpful, 0) / feedPosts.length);
+            document.getElementById('helpfulCount').textContent = avgHelpful + '%';
+        }
+
+        function toggleLike(postId) {
+            if (likedPosts.has(postId)) {
+                likedPosts.delete(postId);
+                showNotification('Like removed', 'info');
+            } else {
+                likedPosts.add(postId);
+                showNotification('Post liked!', 'success');
+            }
+            loadFeedPosts();
+        }
+
+        function toggleSave(postId) {
+            if (savedPosts.has(postId)) {
+                savedPosts.delete(postId);
+                showNotification('Removed from saved', 'info');
+            } else {
+                savedPosts.add(postId);
+                showNotification('Post saved!', 'success');
+            }
+            loadFeedPosts();
+        }
+
+        function showComments(postId) {
+            showNotification('Comments feature coming soon!', 'info');
+        }
+
+        function sharePost(postId) {
+            const post = feedPosts.find(p => p.id === postId);
+            if (post) {
+                const shareText = `Check out this cyber crime awareness post: ${post.title}\n\nLearn more at CyberShield`;
+                navigator.clipboard.writeText(shareText);
+                showNotification('Link copied to clipboard!', 'success');
+            }
+        }
+
+        function setupInfiniteScroll() {
+            window.addEventListener('scroll', function() {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && !isLoading) {
+                    loadMorePosts();
+                }
+            });
+        }
+
+        function loadMorePosts() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            if (!loadingIndicator || isLoading) return;
+            
+            isLoading = true;
+            loadingIndicator.style.display = 'block';
+            
+            // Simulate loading
+            setTimeout(() => {
+                // In real app, load more posts from API
+                loadingIndicator.style.display = 'none';
+                showNotification('No more posts to load', 'info');
+                isLoading = false;
+            }, 1500);
+        }
+
+        // UI Functions
+        function showLogin() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+
+        function hideLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function handleLogin() {
+            showNotification('Login successful! Welcome back.', 'success');
+            hideLogin();
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            const messageElement = document.getElementById('notificationMessage');
+            
+            if (!notification || !messageElement) return;
+            
+            // Set message and type
+            messageElement.textContent = message;
+            notification.className = `notification ${type}`;
+            
+            // Show notification
+            notification.style.display = 'block';
+            
+            // Auto hide
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 4000);
+        }
+
+        function hideNotification() {
+            document.getElementById('notification').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target === modal) {
+                hideLogin();
+            }
+            
+            // Close mobile menu when clicking outside
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if (mobileMenu && mobileMenu.style.display === 'block' && 
+                !mobileMenu.contains(event.target) && 
+                !menuBtn.contains(event.target)) {
+                mobileMenu.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
