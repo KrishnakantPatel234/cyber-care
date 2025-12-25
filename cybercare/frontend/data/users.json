@@ -57,5 +57,10 @@
         "timeSpent": "25.7 hours"
       }
     }
-  ]
+  ],
+  "lastUpdated": "2024-01-18T00:00:00.000Z",
+  "stats": {
+    "totalUsers": 3,
+    "activeUsers": 3
+  }
 }

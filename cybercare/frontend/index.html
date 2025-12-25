@@ -141,6 +141,243 @@
             background: var(--gradient-secondary);
         }
         
+        /* Post styles */
+        .post-card {
+            background: var(--dark-light);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .post-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+        
+        .post-user-info h4 {
+            margin: 0 0 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .verified-badge {
+            color: var(--primary);
+            font-size: 14px;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray-light);
+            font-size: 14px;
+        }
+        
+        .post-category {
+            padding: 3px 12px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .post-title {
+            font-size: 1.5rem;
+            margin: 0 0 15px 0;
+            color: var(--white);
+        }
+        
+        .post-description {
+            color: var(--gray-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .post-solution, .post-prevention {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid;
+            padding: 15px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 20px 0;
+        }
+        
+        .post-solution h5, .post-prevention h5 {
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+        
+        .solution-steps, .prevention-steps {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--gray-light);
+        }
+        
+        .solution-steps li, .prevention-steps li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            transition: background 0.3s;
+        }
+        
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .post-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .action-btn {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            padding: 8px 15px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+        }
+        
+        .action-btn.liked {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .action-btn.saved {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .post-helpful {
+            color: var(--gray-light);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .feed-header {
+            margin-bottom: 30px;
+        }
+        
+        .feed-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .feed-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray-light);
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -165,61 +402,33 @@
                 height: 50px;
                 font-size: 18px;
             }
+            
+            .post-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .feed-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <div class="logo-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <div class="logo-text">CyberShield</div>
-            </a>
-            
-            <div class="nav-links">
-                <a href="index.html" class="nav-link active">Feed</a>
-                <a href="feed.html" class="nav-link">Explore</a>
-                <a href="experts.html" class="nav-link">Experts</a>
-                <a href="tools.html" class="nav-link">Tools</a>
-                <a href="create.html" class="nav-link">Get Help</a>
-            </div>
-            
-            <div class="nav-actions">
-                <button class="btn btn-outline btn-small" onclick="showLogin()">
-                    <i class="fas fa-user"></i> Login
-                </button>
-                <a href="create.html" class="btn btn-primary btn-small">
-                    <i class="fas fa-plus"></i> New Case
-                </a>
-            </div>
-            
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+    <!-- Include Navbar -->
+    <div id="navbar-container"></div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu" style="display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--dark-light); padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); z-index: 999;">
-        <div style="display: flex; flex-direction: column; gap: 15px;">
-            <a href="index.html" class="nav-link active">Feed</a>
-            <a href="feed.html" class="nav-link">Explore</a>
-            <a href="experts.html" class="nav-link">Experts</a>
-            <a href="tools.html" class="nav-link">Tools</a>
-            <a href="create.html" class="nav-link">Get Help</a>
-            <div style="display: flex; gap: 10px; margin-top: 15px;">
-                <button class="btn btn-outline btn-small" style="flex: 1;" onclick="showLogin()">
-                    <i class="fas fa-user"></i> Login
-                </button>
-                <a href="create.html" class="btn btn-primary btn-small" style="flex: 1;">
-                    <i class="fas fa-plus"></i> New Case
-                </a>
-            </div>
-        </div>
-    </div>
+    <script>
+    // Load navbar content
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+    </script>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -291,26 +500,26 @@
                 </div>
                 
                 <div class="feed-filters">
-                    <button class="filter-btn active" onclick="filterFeed('all')">All Cases</button>
-                    <button class="filter-btn" onclick="filterFeed('phishing')">Phishing</button>
-                    <button class="filter-btn" onclick="filterFeed('hacking')">Hacking</button>
-                    <button class="filter-btn" onclick="filterFeed('fraud')">Financial Fraud</button>
-                    <button class="filter-btn" onclick="filterFeed('bullying')">Cyber Bullying</button>
-                    <button class="filter-btn" onclick="filterFeed('social')">Social Media</button>
-                    <button class="filter-btn" onclick="filterFeed('scam')">Online Scams</button>
+                    <button class="filter-btn active" data-filter="all">All Cases</button>
+                    <button class="filter-btn" data-filter="phishing">Phishing</button>
+                    <button class="filter-btn" data-filter="hacking">Hacking</button>
+                    <button class="filter-btn" data-filter="fraud">Financial Fraud</button>
+                    <button class="filter-btn" data-filter="bullying">Cyber Bullying</button>
+                    <button class="filter-btn" data-filter="social">Social Media</button>
+                    <button class="filter-btn" data-filter="scam">Online Scams</button>
                 </div>
                 
                 <div class="feed-stats">
                     <div class="stat-item">
-                        <span class="stat-number" id="postCount">12</span>
+                        <span class="stat-number" id="postCount">0</span>
                         <span class="stat-label">Posts Today</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" id="expertCount">8</span>
+                        <span class="stat-number" id="expertCount">0</span>
                         <span class="stat-label">Active Experts</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" id="helpfulCount">94%</span>
+                        <span class="stat-number" id="helpfulCount">0%</span>
                         <span class="stat-label">Helpful Posts</span>
                     </div>
                 </div>
@@ -367,12 +576,12 @@
             
             <div style="margin-bottom: 20px;">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-input" placeholder="Enter your email">
+                <input type="email" class="form-input" id="loginEmail" placeholder="Enter your email">
             </div>
             
             <div style="margin-bottom: 30px;">
                 <label class="form-label">Password</label>
-                <input type="password" class="form-input" placeholder="Enter your password">
+                <input type="password" class="form-input" id="loginPassword" placeholder="Enter your password">
             </div>
             
             <button class="btn btn-primary" style="width: 100%;" onclick="handleLogin()">
@@ -380,69 +589,85 @@
             </button>
             
             <p style="text-align: center; margin-top: 20px; color: var(--gray-light); font-size: 14px;">
-                Don't have an account? <a href="#" style="color: var(--primary);">Register here</a>
+                Don't have an account? <a href="#" onclick="showRegister(); return false;" style="color: var(--primary); text-decoration: none;">Register here</a>
             </p>
         </div>
     </div>
 
-    <script src="script.js"></script>
     <script>
-        // In index.html, replace the entire script with:
-
-        // Global variables
+        // ============== GLOBAL VARIABLES ==============
         let currentUser = null;
         let likedPosts = new Set();
         let savedPosts = new Set();
         let currentFilter = 'all';
+        let currentSort = 'latest';
         let isLoading = false;
+        let allPosts = [];
 
-        // Initialize
+        // ============== INITIALIZATION ==============
         document.addEventListener('DOMContentLoaded', async function() {
-            // Load user from localStorage
-            loadUserFromStorage();
+            console.log('Initializing CyberShield...');
             
-            // Load feed posts
-            await loadFeedPosts();
+            // Initialize data manager
+            if (!window.dataManager) {
+                console.error('dataManager not loaded');
+                showNotification('Error: Data manager not loaded', 'error');
+                return;
+            }
+            await ensureDataFiles();
+            // Load user data
+            await loadUserData();
             
-            // Setup infinite scroll
-            setupInfiniteScroll();
+            // Initialize posts
+            await initializePosts();
             
-            // Update stats
-            await updateStats();
+            // Setup event listeners
+            setupEventListeners();
         });
 
-        // Load user from localStorage
-        function loadUserFromStorage() {
+        // ============== USER MANAGEMENT ==============
+        async function loadUserData() {
             try {
                 const userData = localStorage.getItem('current_user');
                 if (userData) {
                     currentUser = JSON.parse(userData);
-                    updateUIForLoggedInUser();
+                    updateLoginButton();
                 }
                 
                 // Load liked and saved posts
                 const liked = JSON.parse(localStorage.getItem('liked_posts') || '[]');
                 const saved = JSON.parse(localStorage.getItem('saved_posts') || '[]');
-                
                 likedPosts = new Set(liked);
                 savedPosts = new Set(saved);
+                
+                console.log('User data loaded:', currentUser ? 'Logged in' : 'Not logged in');
             } catch (error) {
                 console.error('Error loading user data:', error);
             }
         }
 
-        // Update UI for logged in user
-        function updateUIForLoggedInUser() {
-            if (currentUser) {
-                const loginBtn = document.querySelector('.btn-outline');
-                if (loginBtn) {
-                    loginBtn.innerHTML = `<i class="fas fa-user"></i> ${currentUser.username}`;
-                    loginBtn.onclick = showUserMenu;
-                }
+        function updateLoginButton() {
+            const loginBtn = document.getElementById('loginBtn');
+            if (loginBtn && currentUser) {
+                loginBtn.innerHTML = `<i class="fas fa-user"></i> ${currentUser.username}`;
+                loginBtn.onclick = showUserMenu;
             }
         }
 
-        // Load feed posts from JSON
+        // ============== POST MANAGEMENT ==============
+        async function initializePosts() {
+            try {
+                const data = await dataManager.loadJSON('posts.json');
+                allPosts = data.posts || [];
+                console.log('Loaded posts:', allPosts.length);
+                await loadFeedPosts();
+                await updateStats();
+            } catch (error) {
+                console.error('Error initializing posts:', error);
+                showNotification('Failed to load posts', 'error');
+            }
+        }
+
         async function loadFeedPosts() {
             const feedContainer = document.getElementById('feedPosts');
             const noPostsMessage = document.getElementById('noPostsMessage');
@@ -454,22 +679,22 @@
             if (loadingIndicator) loadingIndicator.style.display = 'block';
             
             try {
-                // Load posts from JSON file
-                const data = await dataManager.loadJSON('posts.json');
-                let posts = data.posts || [];
-                
-                // Apply filters
+                // Filter posts
+                let filteredPosts = allPosts;
                 if (currentFilter !== 'all') {
-                    posts = posts.filter(post => 
+                    filteredPosts = allPosts.filter(post => 
                         post.category === currentFilter ||
                         post.tags?.some(tag => tag.toLowerCase().includes(currentFilter))
                     );
                 }
                 
+                // Sort posts
+                filteredPosts = sortPosts(filteredPosts, currentSort);
+                
                 // Clear container
                 feedContainer.innerHTML = '';
                 
-                if (posts.length === 0) {
+                if (filteredPosts.length === 0) {
                     feedContainer.style.display = 'none';
                     if (noPostsMessage) noPostsMessage.style.display = 'block';
                 } else {
@@ -477,7 +702,7 @@
                     if (noPostsMessage) noPostsMessage.style.display = 'none';
                     
                     // Render posts
-                    posts.forEach(post => {
+                    filteredPosts.forEach(post => {
                         const postElement = createPostElement(post);
                         feedContainer.innerHTML += postElement;
                     });
@@ -485,14 +710,25 @@
                 
                 updateActiveFilter();
             } catch (error) {
-                console.error('Error loading posts:', error);
+                console.error('Error loading feed posts:', error);
                 showNotification('Failed to load posts', 'error');
             } finally {
                 if (loadingIndicator) loadingIndicator.style.display = 'none';
             }
         }
 
-        // Create post element
+        function sortPosts(posts, sortBy) {
+            const sorted = [...posts];
+            switch(sortBy) {
+                case 'latest':
+                    return sorted.sort((a, b) => new Date(b.timestamp || b.createdAt) - new Date(a.timestamp || a.createdAt));
+                case 'popular':
+                    return sorted.sort((a, b) => (b.stats?.likes || 0) - (a.stats?.likes || 0));
+                default:
+                    return sorted;
+            }
+        }
+
         function createPostElement(post) {
             const isLiked = likedPosts.has(post.id);
             const isSaved = savedPosts.has(post.id);
@@ -550,19 +786,19 @@
                     
                     <div class="post-footer">
                         <div class="post-actions">
-                            <button class="action-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike('${post.id}')">
+                            <button class="action-btn ${isLiked ? 'liked' : ''}" onclick="handleLike('${post.id}')">
                                 <i class="fas fa-heart"></i>
-                                <span>${(post.stats?.likes || 0) + (isLiked ? 1 : 0)}</span>
+                                <span>${(post.stats?.likes || 0)}</span>
                             </button>
-                            <button class="action-btn" onclick="showComments('${post.id}')">
+                            <button class="action-btn" onclick="handleComments('${post.id}')">
                                 <i class="fas fa-comment"></i>
                                 <span>${post.stats?.comments || 0}</span>
                             </button>
-                            <button class="action-btn" onclick="sharePost('${post.id}')">
+                            <button class="action-btn" onclick="handleShare('${post.id}')">
                                 <i class="fas fa-share"></i>
                                 <span>${post.stats?.shares || 0}</span>
                             </button>
-                            <button class="action-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${post.id}')">
+                            <button class="action-btn ${isSaved ? 'saved' : ''}" onclick="handleSave('${post.id}')">
                                 <i class="fas fa-bookmark"></i>
                                 <span>Save</span>
                             </button>
@@ -577,104 +813,101 @@
             `;
         }
 
-// Toggle like
-async function toggleLike(postId) {
-    if (!currentUser) {
-        showNotification('Please login to like posts', 'warning');
-        return;
-    }
-    
-    try {
-        const result = await dataManager.likePost(postId, currentUser.id);
-        
-        if (result.success) {
-            // Update local state
-            if (likedPosts.has(postId)) {
-                likedPosts.delete(postId);
-            } else {
-                likedPosts.add(postId);
+        // ============== POST INTERACTIONS ==============
+        async function handleLike(postId) {
+            if (!currentUser) {
+                showNotification('Please login to like posts', 'warning');
+                return;
             }
             
-            // Update localStorage
-            localStorage.setItem('liked_posts', JSON.stringify([...likedPosts]));
-            
-            // Reload feed
-            await loadFeedPosts();
-            
-            showNotification(result.isLiked ? 'Post liked!' : 'Like removed', 'success');
-        } else {
-            showNotification(result.message, 'error');
+            try {
+                const result = await dataManager.likePost(postId, currentUser.id);
+                
+                if (result.success) {
+                    // Update local state
+                    if (likedPosts.has(postId)) {
+                        likedPosts.delete(postId);
+                    } else {
+                        likedPosts.add(postId);
+                    }
+                    
+                    // Update localStorage
+                    localStorage.setItem('liked_posts', JSON.stringify([...likedPosts]));
+                    
+                    // Update the post in allPosts
+                    const postIndex = allPosts.findIndex(p => p.id === postId);
+                    if (postIndex !== -1) {
+                        allPosts[postIndex].stats.likes = result.likes;
+                    }
+                    
+                    // Reload feed
+                    await loadFeedPosts();
+                    
+                    showNotification(result.isLiked ? 'Post liked!' : 'Like removed', 'success');
+                } else {
+                    showNotification(result.message, 'error');
+                }
+            } catch (error) {
+                console.error('Error toggling like:', error);
+                showNotification('Failed to like post', 'error');
+            }
         }
-    } catch (error) {
-        console.error('Error toggling like:', error);
-        showNotification('Failed to like post', 'error');
-    }
-}
 
-// Toggle save
-async function toggleSave(postId) {
-    if (!currentUser) {
-        showNotification('Please login to save posts', 'warning');
-        return;
-    }
-    
-    try {
-        const result = await dataManager.savePost(postId, currentUser.id);
-        
-        if (result.success) {
-            // Update local state
-            if (savedPosts.has(postId)) {
-                savedPosts.delete(postId);
-            } else {
-                savedPosts.add(postId);
+        async function handleSave(postId) {
+            if (!currentUser) {
+                showNotification('Please login to save posts', 'warning');
+                return;
             }
             
-            // Update localStorage
-            localStorage.setItem('saved_posts', JSON.stringify([...savedPosts]));
-            
-            // Reload feed
-            await loadFeedPosts();
-            
-            showNotification(result.isSaved ? 'Post saved!' : 'Removed from saved', 'success');
-        } else {
-            showNotification(result.message, 'error');
+            try {
+                const result = await dataManager.savePost(postId, currentUser.id);
+                
+                if (result.success) {
+                    // Update local state
+                    if (savedPosts.has(postId)) {
+                        savedPosts.delete(postId);
+                    } else {
+                        savedPosts.add(postId);
+                    }
+                    
+                    // Update localStorage
+                    localStorage.setItem('saved_posts', JSON.stringify([...savedPosts]));
+                    
+                    // Reload feed
+                    await loadFeedPosts();
+                    
+                    showNotification(result.isSaved ? 'Post saved!' : 'Removed from saved', 'success');
+                } else {
+                    showNotification(result.message, 'error');
+                }
+            } catch (error) {
+                console.error('Error toggling save:', error);
+                showNotification('Failed to save post', 'error');
+            }
         }
-    } catch (error) {
-        console.error('Error toggling save:', error);
-        showNotification('Failed to save post', 'error');
-    }
-}
 
-// Update stats
-async function updateStats() {
-    try {
-        const data = await dataManager.loadJSON('posts.json');
-        const posts = data.posts || [];
-        
-        // Update counts
-        document.getElementById('postCount').textContent = posts.length;
-        
-        // Count unique experts
-        const experts = [...new Set(posts.map(p => p.author?.initials).filter(Boolean))];
-        document.getElementById('expertCount').textContent = experts.length;
-        
-        // Calculate average helpful percentage
-        const avgHelpful = posts.length > 0 
-            ? Math.round(posts.reduce((sum, p) => sum + (p.stats?.helpful || 0), 0) / posts.length)
-            : 95;
-        document.getElementById('helpfulCount').textContent = avgHelpful + '%';
-    } catch (error) {
-        console.error('Error updating stats:', error);
-    }
-}
+        function handleComments(postId) {
+            showNotification('Comments feature coming soon!', 'info');
+        }
 
-// Filter feed
-function filterFeed(filter) {
-    currentFilter = filter;
-    loadFeedPosts();
-    showNotification(`Showing ${filter === 'all' ? 'all' : filter} cases`, 'info');
-}
+        function handleShare(postId) {
+            const post = allPosts.find(p => p.id === postId);
+            if (post) {
+                const shareText = `Check out this cyber crime awareness post: ${post.title}\n\nLearn more at CyberShield`;
+                if (navigator.share) {
+                    navigator.share({
+                        title: post.title,
+                        text: shareText,
+                        url: window.location.href
+                    });
+                } else {
+                    navigator.clipboard.writeText(shareText);
+                    showNotification('Link copied to clipboard!', 'success');
+                }
+            }
+        }
 
+        // ============== FILTERS AND SORTING ==============
         function filterFeed(filter) {
             currentFilter = filter;
             loadFeedPosts();
@@ -682,11 +915,7 @@ function filterFeed(filter) {
         }
 
         function sortFeed(sortBy) {
-            if (sortBy === 'latest') {
-                feedPosts.sort((a, b) => b.id - a.id);
-            } else if (sortBy === 'popular') {
-                feedPosts.sort((a, b) => b.stats.likes - a.stats.likes);
-            }
+            currentSort = sortBy;
             loadFeedPosts();
             showNotification(`Sorted by ${sortBy}`, 'info');
         }
@@ -694,80 +923,32 @@ function filterFeed(filter) {
         function updateActiveFilter() {
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if (btn.textContent.toLowerCase().includes(currentFilter)) {
+                if (btn.dataset.filter === currentFilter) {
                     btn.classList.add('active');
                 }
             });
         }
 
-        function updateStats() {
-            document.getElementById('postCount').textContent = feedPosts.length;
-            document.getElementById('expertCount').textContent = new Set(feedPosts.map(p => p.author.initials)).size;
-            
-            const avgHelpful = Math.round(feedPosts.reduce((sum, post) => sum + post.stats.helpful, 0) / feedPosts.length);
-            document.getElementById('helpfulCount').textContent = avgHelpful + '%';
-        }
-
-        function toggleLike(postId) {
-            if (likedPosts.has(postId)) {
-                likedPosts.delete(postId);
-                showNotification('Like removed', 'info');
-            } else {
-                likedPosts.add(postId);
-                showNotification('Post liked!', 'success');
-            }
-            loadFeedPosts();
-        }
-
-        function toggleSave(postId) {
-            if (savedPosts.has(postId)) {
-                savedPosts.delete(postId);
-                showNotification('Removed from saved', 'info');
-            } else {
-                savedPosts.add(postId);
-                showNotification('Post saved!', 'success');
-            }
-            loadFeedPosts();
-        }
-
-        function showComments(postId) {
-            showNotification('Comments feature coming soon!', 'info');
-        }
-
-        function sharePost(postId) {
-            const post = feedPosts.find(p => p.id === postId);
-            if (post) {
-                const shareText = `Check out this cyber crime awareness post: ${post.title}\n\nLearn more at CyberShield`;
-                navigator.clipboard.writeText(shareText);
-                showNotification('Link copied to clipboard!', 'success');
+        // ============== STATISTICS ==============
+        async function updateStats() {
+            try {
+                document.getElementById('postCount').textContent = allPosts.length;
+                
+                // Count unique experts
+                const experts = [...new Set(allPosts.map(p => p.author?.initials).filter(Boolean))];
+                document.getElementById('expertCount').textContent = experts.length;
+                
+                // Calculate average helpful percentage
+                const avgHelpful = allPosts.length > 0 
+                    ? Math.round(allPosts.reduce((sum, p) => sum + (p.stats?.helpful || 0), 0) / allPosts.length)
+                    : 95;
+                document.getElementById('helpfulCount').textContent = avgHelpful + '%';
+            } catch (error) {
+                console.error('Error updating stats:', error);
             }
         }
 
-        function setupInfiniteScroll() {
-            window.addEventListener('scroll', function() {
-                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && !isLoading) {
-                    loadMorePosts();
-                }
-            });
-        }
-
-        function loadMorePosts() {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            if (!loadingIndicator || isLoading) return;
-            
-            isLoading = true;
-            loadingIndicator.style.display = 'block';
-            
-            // Simulate loading
-            setTimeout(() => {
-                // In real app, load more posts from API
-                loadingIndicator.style.display = 'none';
-                showNotification('No more posts to load', 'info');
-                isLoading = false;
-            }, 1500);
-        }
-
-        // UI Functions
+        // ============== UI FUNCTIONS ==============
         function showLogin() {
             document.getElementById('loginModal').style.display = 'flex';
         }
@@ -776,9 +957,307 @@ function filterFeed(filter) {
             document.getElementById('loginModal').style.display = 'none';
         }
 
-        function handleLogin() {
-            showNotification('Login successful! Welcome back.', 'success');
+        async function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!email || !password) {
+                showNotification('Please enter both email and password', 'error');
+                return;
+            }
+            
+            try {
+                const usersData = await dataManager.loadJSON('users.json');
+                
+                // Find user by email only (password checking will be added later)
+                const user = usersData.users.find(u => u.email === email);
+                
+                if (user) {
+                    // For now, accept any password (we'll add proper password checking later)
+                    // Update last login
+                    user.lastLogin = new Date().toISOString();
+                    
+                    // Save updated user data
+                    await dataManager.saveJSON('users.json', usersData);
+                    
+                    // Login successful
+                    currentUser = {
+                        id: user.id,
+                        username: user.username,
+                        email: user.email,
+                        role: user.role,
+                        joinedAt: user.createdAt
+                    };
+                    
+                    localStorage.setItem('current_user', JSON.stringify(currentUser));
+                    updateLoginButton();
+                    hideLogin();
+                    showNotification(`Welcome back, ${user.username}!`, 'success');
+                } else {
+                    if (confirm('No account found. Would you like to register?')) {
+                        showRegister();
+                    } else {
+                        showNotification('Login failed. Please check credentials.', 'error');
+                    }
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showNotification('Login failed. Please try again.', 'error');
+            }
+        }
+        function showRegister() {
             hideLogin();
+            const registerHTML = `
+                <div id="registerModal" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1002; display: flex; align-items: center; justify-content: center;">
+                    <div style="background: var(--dark-light); border-radius: var(--radius-lg); padding: 40px; width: 90%; max-width: 400px; border: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                            <h3 style="margin: 0;">Register for CyberShield</h3>
+                            <button style="background: none; border: none; color: var(--gray-light); font-size: 24px; cursor: pointer;" onclick="document.getElementById('registerModal').remove()">
+                                &times;
+                            </button>
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" id="regName" placeholder="Enter your full name">
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" id="regEmail" placeholder="Enter your email">
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-input" id="regPassword" placeholder="Create a password">
+                        </div>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" class="form-input" id="regConfirmPassword" placeholder="Confirm password">
+                        </div>
+                        
+                        <button class="btn btn-primary" style="width: 100%;" onclick="handleRegister()">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                        
+                        <p style="text-align: center; margin-top: 20px; color: var(--gray-light); font-size: 14px;">
+                            Already have an account? <a href="#" onclick="document.getElementById('registerModal').remove(); showLogin(); return false;" style="color: var(--primary); text-decoration: none;">Login here</a>
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', registerHTML);
+        }
+
+        async function handleRegister() {
+            const name = document.getElementById('regName')?.value;
+            const email = document.getElementById('regEmail')?.value;
+            const password = document.getElementById('regPassword')?.value;
+            const confirmPassword = document.getElementById('regConfirmPassword')?.value;
+            
+            if (!name || !email || !password || !confirmPassword) {
+                showNotification('Please fill all fields', 'error');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match', 'error');
+                return;
+            }
+            
+            if (password.length < 6) {
+                showNotification('Password must be at least 6 characters', 'error');
+                return;
+            }
+            
+            try {
+                // Load existing users
+                const usersData = await dataManager.loadJSON('users.json');
+                
+                // Check if user already exists
+                const existingUser = usersData.users.find(u => u.email === email);
+                if (existingUser) {
+                    showNotification('Email already registered. Please login.', 'error');
+                    return;
+                }
+                
+                // Create new user with proper structure matching your JSON
+                const newUser = {
+                    id: `user_${Date.now()}`,
+                    username: name.replace(/\s+/g, '_').toLowerCase(),
+                    email: email,
+                    role: 'victim',
+                    isAnonymous: false,
+                    createdAt: new Date().toISOString(),
+                    lastLogin: new Date().toISOString(),
+                    tickets: [],
+                    savedPosts: [],
+                    stats: {
+                        postsViewed: 0,
+                        ticketsCreated: 0,
+                        casesResolved: 0,
+                        postsLiked: 0,
+                        postsSaved: 0,
+                        timeSpent: "0 hours"
+                    }
+                };
+                
+                // Add to users array
+                usersData.users.push(newUser);
+                
+                // Update stats - ensure stats object exists
+                if (!usersData.stats) {
+                    usersData.stats = {
+                        totalUsers: 0,
+                        activeUsers: 0
+                    };
+                }
+                usersData.stats.totalUsers = usersData.users.length;
+                usersData.stats.activeUsers = usersData.users.filter(u => 
+                    new Date().getTime() - new Date(u.lastLogin).getTime() < 24 * 60 * 60 * 1000
+                ).length;
+                
+                usersData.lastUpdated = new Date().toISOString();
+                
+                // Save to JSON
+                const saveResult = await dataManager.saveJSON('users.json', usersData);
+                
+                if (!saveResult.success) {
+                    throw new Error(saveResult.message || 'Failed to save user');
+                }
+                
+                // Login the new user
+                currentUser = {
+                    id: newUser.id,
+                    username: newUser.username,
+                    email: newUser.email,
+                    role: newUser.role,
+                    joinedAt: newUser.createdAt
+                };
+                
+                // Save to localStorage
+                localStorage.setItem('current_user', JSON.stringify(currentUser));
+                
+                // Update UI
+                updateLoginButton();
+                
+                // Remove registration modal
+                document.getElementById('registerModal')?.remove();
+                
+                showNotification(`Account created successfully! Welcome to CyberShield, ${name}!`, 'success');
+                
+                // Reload page to update user state
+                setTimeout(() => {
+                    location.reload();
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Registration error:', error);
+                showNotification(`Registration failed: ${error.message}`, 'error');
+            }
+        }
+        function showUserMenu() {
+            if (!currentUser) return;
+            
+            const userMenu = document.createElement('div');
+            userMenu.id = 'userMenu';
+            userMenu.style.cssText = `
+                position: fixed;
+                top: 70px;
+                right: 20px;
+                background: var(--dark-light);
+                border-radius: var(--radius-lg);
+                padding: 15px;
+                border: 1px solid rgba(255,255,255,0.1);
+                min-width: 200px;
+                box-shadow: var(--shadow-lg);
+                z-index: 1001;
+            `;
+            
+            userMenu.innerHTML = `
+                <div style="padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <div style="font-weight: 600; color: var(--white);">${currentUser.username}</div>
+                    <div style="font-size: 12px; color: var(--gray-light);">${currentUser.email}</div>
+                </div>
+                
+                <div style="padding: 10px 0;">
+                    <button class="user-menu-item" onclick="window.location.href='dashboard.html'">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </button>
+                    <button class="user-menu-item" onclick="window.location.href='create.html'">
+                        <i class="fas fa-plus-circle"></i> New Ticket
+                    </button>
+                    <button class="user-menu-item" onclick="window.location.href='my-tickets.html'">
+                        <i class="fas fa-ticket-alt"></i> My Tickets
+                    </button>
+                    <button class="user-menu-item" onclick="window.location.href='saved-posts.html'">
+                        <i class="fas fa-bookmark"></i> Saved Posts
+                    </button>
+                </div>
+                
+                <div style="padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <button class="user-menu-item logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            `;
+            
+            // Add styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .user-menu-item {
+                    width: 100%;
+                    background: none;
+                    border: none;
+                    color: var(--gray-light);
+                    padding: 10px;
+                    text-align: left;
+                    cursor: pointer;
+                    border-radius: 6px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-family: inherit;
+                    font-size: 14px;
+                }
+                
+                .user-menu-item:hover {
+                    background: rgba(255,255,255,0.05);
+                    color: var(--white);
+                }
+                
+                .user-menu-item.logout {
+                    color: var(--accent);
+                }
+                
+                .user-menu-item.logout:hover {
+                    background: rgba(239, 68, 68, 0.1);
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(userMenu);
+            
+            // Close menu when clicking outside
+            setTimeout(() => {
+                const closeMenu = (e) => {
+                    if (!userMenu.contains(e.target) && !e.target.closest('#loginBtn')) {
+                        userMenu.remove();
+                        document.removeEventListener('click', closeMenu);
+                    }
+                };
+                document.addEventListener('click', closeMenu);
+            }, 100);
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('current_user');
+            updateLoginButton();
+            document.getElementById('userMenu')?.remove();
+            showNotification('Logged out successfully', 'info');
         }
 
         function toggleMenu() {
@@ -796,14 +1275,10 @@ function filterFeed(filter) {
             
             if (!notification || !messageElement) return;
             
-            // Set message and type
             messageElement.textContent = message;
             notification.className = `notification ${type}`;
-            
-            // Show notification
             notification.style.display = 'block';
             
-            // Auto hide
             setTimeout(() => {
                 notification.style.display = 'none';
             }, 4000);
@@ -813,22 +1288,99 @@ function filterFeed(filter) {
             document.getElementById('notification').style.display = 'none';
         }
 
-        // Close modal when clicking outside
-        document.addEventListener('click', function(event) {
-            const modal = document.getElementById('loginModal');
-            if (event.target === modal) {
-                hideLogin();
-            }
+        // ============== EVENT LISTENERS ==============
+        function setupEventListeners() {
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterFeed(btn.dataset.filter);
+                });
+            });
             
-            // Close mobile menu when clicking outside
-            const mobileMenu = document.getElementById('mobileMenu');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            if (mobileMenu && mobileMenu.style.display === 'block' && 
-                !mobileMenu.contains(event.target) && 
-                !menuBtn.contains(event.target)) {
-                mobileMenu.style.display = 'none';
+            // Sort buttons
+            document.querySelectorAll('.btn-secondary').forEach(btn => {
+                if (btn.textContent.includes('Latest')) {
+                    btn.addEventListener('click', () => sortFeed('latest'));
+                } else if (btn.textContent.includes('Popular')) {
+                    btn.addEventListener('click', () => sortFeed('popular'));
+                }
+            });
+            
+            // Close modals when clicking outside
+            document.addEventListener('click', function(event) {
+                const loginModal = document.getElementById('loginModal');
+                if (event.target === loginModal) {
+                    hideLogin();
+                }
+                
+                const mobileMenu = document.getElementById('mobileMenu');
+                const menuBtn = document.querySelector('.mobile-menu-btn');
+                if (mobileMenu && mobileMenu.style.display === 'block' && 
+                    !mobileMenu.contains(event.target) && 
+                    !menuBtn.contains(event.target)) {
+                    mobileMenu.style.display = 'none';
+                }
+            });
+            
+            // Setup infinite scroll
+            setupInfiniteScroll();
+        }
+
+        function setupInfiniteScroll() {
+            window.addEventListener('scroll', () => {
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 && !isLoading) {
+                    loadMorePosts();
+                }
+            });
+        }
+
+        function loadMorePosts() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            if (!loadingIndicator || isLoading) return;
+            
+            isLoading = true;
+            loadingIndicator.style.display = 'block';
+            
+            // Simulate loading more posts
+            setTimeout(() => {
+                loadingIndicator.style.display = 'none';
+                showNotification('No more posts to load', 'info');
+                isLoading = false;
+            }, 1000);
+        }
+
+        // Initialize any missing files
+        async function ensureDataFiles() {
+            try {
+                const usersData = await dataManager.loadJSON('users.json');
+                
+                // Ensure stats object exists
+                if (!usersData.stats) {
+                    usersData.stats = {
+                        totalUsers: usersData.users ? usersData.users.length : 0,
+                        activeUsers: 0
+                    };
+                }
+                
+                // Ensure lastUpdated exists
+                if (!usersData.lastUpdated) {
+                    usersData.lastUpdated = new Date().toISOString();
+                }
+                
+                // Calculate active users
+                usersData.stats.activeUsers = usersData.users.filter(u => {
+                    if (!u.lastLogin) return false;
+                    const lastLogin = new Date(u.lastLogin);
+                    const now = new Date();
+                    return (now.getTime() - lastLogin.getTime()) < 24 * 60 * 60 * 1000; // Last 24 hours
+                }).length;
+                
+                await dataManager.saveJSON('users.json', usersData);
+                
+            } catch (error) {
+                console.error('Error ensuring data files:', error);
             }
-        });
+        }
     </script>
 </body>
 </html>
