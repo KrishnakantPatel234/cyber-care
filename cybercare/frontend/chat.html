@@ -359,6 +359,18 @@
     </style>
 </head>
 <body>
+    <!-- Include Navbar -->
+    <div id="navbar-container"></div>
+
+    <script>
+    // Load navbar content
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+    </script>
     <div class="chat-container">
         <a href="index.html" class="back-btn">
             <i class="fas fa-arrow-left"></i> Back to Feed
