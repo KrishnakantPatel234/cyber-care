@@ -1,0 +1,39 @@
+{
+  "tickets": [
+    {
+      "id": "TICKET_1705567890123",
+      "userId": "user_123",
+      "title": "Facebook account hacked",
+      "description": "Someone accessed my account and changed password",
+      "category": "hacking",
+      "severity": "high",
+      "status": "in-progress",
+      "expertId": "exp_002",
+      "createdAt": "2024-01-18T10:30:00Z",
+      "updatedAt": "2024-01-18T10:30:00Z",
+      "isAnonymous": true,
+      "blurSensitive": true,
+      "evidenceFiles": [],
+      "messages": [
+        {
+          "id": "msg_001",
+          "sender": "user",
+          "content": "My Facebook account was hacked yesterday",
+          "timestamp": "2024-01-18T10:30:00Z"
+        },
+        {
+          "id": "msg_002",
+          "sender": "expert",
+          "content": "I'll help you recover it. Please go to facebook.com/hacked",
+          "timestamp": "2024-01-18T10:35:00Z"
+        }
+      ]
+    }
+  ],
+  "lastTicketId": "TICKET_1705567890123",
+  "stats": {
+    "openTickets": 1,
+    "resolvedTickets": 0,
+    "averageResolutionTime": 0
+  }
+}
